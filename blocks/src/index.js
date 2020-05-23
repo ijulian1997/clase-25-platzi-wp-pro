@@ -15,13 +15,15 @@ registerBlockType(
 			content: {
 				type: "string",
 				default: "Hello World"
-			}
+			},
+			mediaURL: {type: 'string'},
+			mediaAlt: {type: 'string'}
 		},
 
 		// Mostrar como lo vamos a ver en el editor
 		edit: (props) => {
 			// Todos los bloques tienen estas 4 propiedades
-			const { attributes : {content}, setAttributes, className, isSelected} = props;
+			const { attributes : {content, mediaURL, mediaAlt}, setAttributes, className, isSelected} = props;
 
 			// Función para guardar el atributo content
 			const handlerOnChangeInput = (newContent) => {
@@ -40,7 +42,7 @@ registerBlockType(
 				<InspectorControls>
 					<PanelBody // Primer panel en el sidebar
 						title="Modificar texto del Bloque Básico"
-						initialOpen={ true }
+						initialOpen={ false }
 					> 
 						<PanelRow>
 							<TextControl
